@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
 }
@@ -79,4 +79,117 @@ form button {
   color: #fff;
   font-size: 1.15rem;
   cursor: pointer;
+} */
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Isse padding width ke bahar nahi jayegi */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4e4ba;
+  padding: 1rem; /* Mobile devices par thodi space dene ke liye */
+}
+
+.container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  min-height: 45vh;
+  /* Resize logic: Mobile par 90% width, Laptop par max 400px */
+  width: 95%; 
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Thoda extra look ke liye */
+}
+
+form {
+  margin: 2rem 0 1rem 0;
+}
+
+form select,
+button,
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 0.75rem;
+}
+
+form input {
+  border: 1px solid lightgray;
+  font-size: 1rem;
+  height: 3rem;
+  padding-left: 0.5rem;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 1rem; /* Dropdowns ke beech gap ke liye */
+}
+
+.dropdown i {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.select-container img {
+  max-width: 2rem;
+}
+
+.select-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Flexible width */
+  max-width: 7rem; /* Lekin ek limit tak */
+  border-radius: 0.5rem;
+  border: 1px solid lightgray;
+  padding: 0.2rem;
+}
+
+.select-container select {
+  font-size: 1rem;
+  width: auto;
+  cursor: pointer;
+}
+
+.msg {
+  margin: 2rem 0 2rem 0;
+  font-weight: 500;
+  text-align: center; /* Message center mein dikhega */
+}
+
+form button {
+  height: 3rem;
+  background-color: #af4d98;
+  color: #fff;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+form button:active {
+  opacity: 0.8; /* Click karte waqt feedback milega */
+}
+
+/* Chote phones ke liye thoda adjust */
+@media (max-width: 350px) {
+  .container {
+    padding: 1.5rem;
+  }
+  .dropdown {
+    flex-direction: column; /* Bahut choti screen par dropdowns upar-neeche ho jayenge */
+    gap: 0.5rem;
+  }
 }
