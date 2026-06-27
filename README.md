@@ -64,6 +64,6 @@ Follow these basic guidelines to spin up the workspace instantly on your target 
 ### 1. Clone the Target Workspace
 
 ```bash
-git clone [https://github.com/amirsohail100/your-currency-repo-name.git](https://github.com/amirsohail100/your-currency-repo-name.git)
-cd your-currency-repo-name
+git clone [https://github.com/amirsohail100/Currency-Converter.git](https://github.com/amirsohail100/Currency-Converter.git)
+cd Currency-Converter
 ```
