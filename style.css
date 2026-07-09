@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Isse padding width ke bahar nahi jayegi */
+  box-sizing: border-box;
 }
 
 body {
@@ -10,7 +10,7 @@ body {
   align-items: center;
   min-height: 100vh;
   background-color: #f4e4ba;
-  padding: 1rem; /* Mobile devices par thodi space dene ke liye */
+  padding: 1rem; 
 }
 
 .container {
@@ -18,10 +18,9 @@ body {
   padding: 2rem;
   border-radius: 1rem;
   min-height: 45vh;
-  /* Resize logic: Mobile par 90% width, Laptop par max 400px */
   width: 95%; 
   max-width: 400px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Thoda extra look ke liye */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 form {
@@ -49,7 +48,7 @@ form input {
   justify-content: space-between;
   align-items: center;
   margin-top: 2rem;
-  gap: 1rem; /* Dropdowns ke beech gap ke liye */
+  gap: 1rem; 
 }
 
 .dropdown i {
@@ -65,8 +64,8 @@ form input {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Flexible width */
-  max-width: 7rem; /* Lekin ek limit tak */
+  width: 100%; 
+  max-width: 7rem; 
   border-radius: 0.5rem;
   border: 1px solid lightgray;
   padding: 0.2rem;
@@ -81,7 +80,7 @@ form input {
 .msg {
   margin: 2rem 0 2rem 0;
   font-weight: 500;
-  text-align: center; /* Message center mein dikhega */
+  text-align: center; 
 }
 
 form button {
@@ -94,16 +93,16 @@ form button {
 }
 
 form button:active {
-  opacity: 0.8; /* Click karte waqt feedback milega */
+  opacity: 0.8; 
 }
 
-/* Chote phones ke liye thoda adjust */
+
 @media (max-width: 350px) {
   .container {
     padding: 1.5rem;
   }
   .dropdown {
-    flex-direction: column; /* Bahut choti screen par dropdowns upar-neeche ho jayenge */
+    flex-direction: column; 
     gap: 0.5rem;
   }
 }
