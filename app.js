@@ -32,14 +32,12 @@ const updateExchangeRate = async () => {
     amount.value = "1";
   }
 
-  // Naya URL format jo working hai
   const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}.json`;
 
   try {
     let response = await fetch(URL);
     let data = await response.json();
     
-    // Nayi API se rate nikalne ka sahi tarika
     let rate = data[fromCurr.value.toLowerCase()][toCurr.value.toLowerCase()];
 
     let finalAmount = amtVal * rate;
