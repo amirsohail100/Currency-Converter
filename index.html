@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Currency Converter</title>
+    <title>Premium Currency Converter</title>
     <link href="style.css" rel="stylesheet" />
+    <!-- Added Poppins Font for Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -14,6 +16,10 @@
     />
   </head>
   <body>
+    <!-- Ambient Animated Background Shapes -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    
     <div class="container">
       <h2>Currency Converter</h2>
       <form>
@@ -25,20 +31,20 @@
           <div class="from">
             <p>From</p>
             <div class="select-container">
-              <img src="https://flagsapi.com/US/flat/64.png" />
+              <img src="https://flagsapi.com/US/flat/64.png" alt="From Currency Flag"/>
               <select name="from"></select>
             </div>
           </div>
-          <i class="fa-solid fa-arrow-right-arrow-left"></i>
+          <i class="fa-solid fa-arrow-right-arrow-left exchange-icon"></i>
           <div class="to">
             <p>To</p>
             <div class="select-container">
-              <img src="https://flagsapi.com/IN/flat/64.png" />
+              <img src="https://flagsapi.com/IN/flat/64.png" alt="To Currency Flag"/>
               <select name="to"></select>
             </div>
           </div>
         </div>
-        <div class="msg">1USD = 80INR</div>
+        <div class="msg">1 USD = 80 INR</div>
         <button>Get Exchange Rate</button>
       </form>
     </div>
