@@ -2,47 +2,132 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* Dynamic Gradient Background */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f4e4ba;
-  padding: 1rem; 
+  background: linear-gradient(-45deg, #2a0845, #6441A5, #ff4b2b, #ff416c);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Ambient Background Floating Shapes */
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  animation: float 10s ease-in-out infinite;
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.15);
+  top: -50px;
+  left: -50px;
+}
+
+.shape-2 {
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 75, 43, 0.2);
+  bottom: -100px;
+  right: -100px;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.05); }
+}
+
+/* Glassmorphism Container */
 .container {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
   min-height: 45vh;
   width: 95%; 
-  max-width: 400px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-width: 420px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  z-index: 1;
+  color: white;
+  animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.4);
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.9) translateY(30px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+h2 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 form {
-  margin: 2rem 0 1rem 0;
+  margin: 1rem 0;
 }
 
-form select,
-button,
-input {
+form select, button, input {
   width: 100%;
   border: none;
   outline: none;
   border-radius: 0.75rem;
 }
 
-form input {
-  border: 1px solid lightgray;
-  font-size: 1rem;
-  height: 3rem;
-  padding-left: 0.5rem;
+form p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
 }
 
+/* Modern Inputs */
+form input {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 1.1rem;
+  height: 3.5rem;
+  padding-left: 1rem;
+  color: white;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+form input:focus {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #ff4b2b;
+  box-shadow: 0 0 15px rgba(255, 75, 43, 0.4);
+}
+
+/* Dropdown Section */
 .dropdown {
   display: flex;
   justify-content: space-between;
@@ -51,51 +136,92 @@ form input {
   gap: 1rem; 
 }
 
-.dropdown i {
+.exchange-icon {
   font-size: 1.5rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.8rem;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.select-container img {
-  max-width: 2rem;
+.exchange-icon:hover {
+  transform: rotate(180deg) scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .select-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%; 
-  max-width: 7rem; 
-  border-radius: 0.5rem;
-  border: 1px solid lightgray;
-  padding: 0.2rem;
+  max-width: 8.5rem; 
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+
+.select-container:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.select-container img {
+  max-width: 2rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .select-container select {
   font-size: 1rem;
   width: auto;
   cursor: pointer;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  appearance: none;
+  padding-left: 0.5rem;
+}
+
+.select-container select option {
+  color: #333;
 }
 
 .msg {
-  margin: 2rem 0 2rem 0;
-  font-weight: 500;
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
   text-align: center; 
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border-left: 4px solid #ff4b2b;
 }
 
+/* 3D Tactile Button */
 form button {
-  height: 3rem;
-  background-color: #af4d98;
+  height: 3.5rem;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
   color: #fff;
   font-size: 1.15rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.2s;
+  box-shadow: 0 10px 20px rgba(255, 75, 43, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(255, 75, 43, 0.5);
 }
 
 form button:active {
-  opacity: 0.8; 
+  transform: translateY(2px);
+  box-shadow: 0 5px 10px rgba(255, 75, 43, 0.3);
 }
-
 
 @media (max-width: 350px) {
   .container {
@@ -104,5 +230,12 @@ form button:active {
   .dropdown {
     flex-direction: column; 
     gap: 0.5rem;
+  }
+  .exchange-icon {
+    margin-top: 0;
+    transform: rotate(90deg);
+  }
+  .exchange-icon:hover {
+    transform: rotate(270deg) scale(1.1);
   }
 }
