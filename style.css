@@ -51,8 +51,8 @@ body {
   color: var(--text-main);
 }
 
-/* Starry Night CSS Animation */
-.stars, .twinkling {
+/* Pure CSS Multi-Layered Starry Night Animations */
+.stars-layer-1, .stars-layer-2, .stars-layer-3 {
   position: absolute;
   top: 0;
   left: 0;
@@ -60,30 +60,64 @@ body {
   bottom: 0;
   width: 100%;
   height: 100%;
-  display: block;
+  pointer-events: none;
 }
 
-.stars {
-  background: #000 url('https://www.script-tutorials.com/demos/360/images/stars.png') repeat top center;
-  z-index: 0;
-  opacity: 0.8;
-}
-
-.twinkling {
-  background: transparent url('https://www.script-tutorials.com/demos/360/images/twinkling.png') repeat top center;
+.stars-layer-1 {
+  background-image: 
+    radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 80px 120px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 150px 60px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 220px 180px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 310px 90px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 380px 240px, #ffffff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 400px 300px;
+  animation: twinkleStars 4s ease-in-out infinite alternate;
   z-index: 1;
-  animation: move-twink-back 200s linear infinite;
-  opacity: 0.4;
+  opacity: 0.7;
 }
 
-body.light-mode .stars,
-body.light-mode .twinkling {
+.stars-layer-2 {
+  background-image: 
+    radial-gradient(2px 2px at 50px 160px, #a5b4fc, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 130px 40px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2.5px 2.5px at 250px 210px, #818cf8, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 340px 130px, #ffffff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 350px 350px;
+  animation: moveAndTwinkle 25s linear infinite;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.stars-layer-3 {
+  background-image: 
+    radial-gradient(1px 1px at 90px 220px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 190px 90px, #c084fc, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 290px 270px, #ffffff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  animation: moveAndTwinkle 40s linear infinite reverse;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+body.light-mode .stars-layer-1,
+body.light-mode .stars-layer-2,
+body.light-mode .stars-layer-3 {
   display: none;
 }
 
-@keyframes move-twink-back {
-  from { background-position: 0 0; }
-  to { background-position: -10000px 5000px; }
+@keyframes twinkleStars {
+  0% { opacity: 0.3; transform: scale(0.98); }
+  100% { opacity: 0.95; transform: scale(1.02); }
+}
+
+@keyframes moveAndTwinkle {
+  0% { transform: translateY(0px); opacity: 0.4; }
+  50% { opacity: 0.9; }
+  100% { transform: translateY(-300px); opacity: 0.4; }
 }
 
 /* Main Application Card Container */
@@ -99,7 +133,6 @@ body.light-mode .twinkling {
   max-width: 420px;
   box-shadow: 0 20px 40px var(--shadow-color);
   z-index: 2;
-  transform: translateY(0);
   animation: floatCard 6s ease-in-out infinite;
 }
 
