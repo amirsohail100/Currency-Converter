@@ -15,6 +15,12 @@ Designed with an ultra-clean user experience, this repository showcases advanced
 
 ---
 
+## 📸 Live Preview of the Interface
+
+![Currency Converter Preview](./currency_ui.png)
+
+---
+
 ## 🛠️ Core Features & Engineering Objectives (Final UI)
 
 - **Continuous Dense Money Rain:** Engineered 24 floating currency symbols ($ , ₹, €, £, ¥, 💵, ₿) using staggered negative animation delays to guarantee smooth, infinite falling loops with zero delay gaps on load.
