@@ -2,41 +2,59 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-/* Theme Color Variables */
+/* Theme Variables */
 :root {
-  --bg-gradient: linear-gradient(135deg, #0b0d17 0%, #1a1c2e 100%);
-  --card-bg: rgba(22, 27, 46, 0.75);
-  --card-border: rgba(255, 255, 255, 0.12);
+  --bg-color: #090d16;
+  --card-bg: rgba(18, 24, 43, 0.82);
+  --card-border: rgba(255, 255, 255, 0.18);
   --text-main: #ffffff;
-  --text-sub: #a0aec0;
-  --input-bg: rgba(255, 255, 255, 0.07);
-  --input-border: rgba(255, 255, 255, 0.2);
+  --text-sub: #cbd5e1;
+  --input-bg: rgba(255, 255, 255, 0.08);
+  --input-border: rgba(255, 255, 255, 0.25);
   --btn-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
   --btn-hover: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
   --btn-text: #ffffff;
-  --msg-bg: rgba(99, 102, 241, 0.15);
-  --msg-border: #6366f1;
-  --shadow-color: rgba(0, 0, 0, 0.5);
+  --msg-bg: rgba(99, 102, 241, 0.2);
+  --msg-border: #818cf8;
+  --shadow-color: rgba(0, 0, 0, 0.6);
+
+  /* Animation Theme Variables */
+  --star-head: #ffffff;
+  --star-trail: rgba(99, 102, 241, 0.9);
+  --star-glow: #60a5fa;
+  --blob-1: rgba(147, 51, 234, 0.55);
+  --blob-2: rgba(59, 130, 246, 0.55);
 }
 
 body.light-mode {
-  --bg-gradient: linear-gradient(135deg, #e2e8f0 0%, #f8fafc 100%);
-  --card-bg: rgba(255, 255, 255, 0.85);
-  --card-border: rgba(0, 0, 0, 0.1);
+  --bg-color: #e0e7ff;
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --card-border: rgba(99, 102, 241, 0.25);
   --text-main: #0f172a;
-  --text-sub: #475569;
+  --text-sub: #334155;
   --input-bg: #ffffff;
-  --input-border: #cbd5e1;
+  --input-border: #94a3b8;
   --btn-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   --btn-hover: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
   --btn-text: #ffffff;
-  --msg-bg: rgba(37, 99, 235, 0.1);
+  --msg-bg: rgba(37, 99, 235, 0.12);
   --msg-border: #2563eb;
-  --shadow-color: rgba(148, 163, 184, 0.3);
+  --shadow-color: rgba(99, 102, 241, 0.25);
+
+  /* Light Mode High-Contrast Animation Colors */
+  --star-head: #1e3a8a;
+  --star-trail: rgba(37, 99, 235, 0.9);
+  --star-glow: #3b82f6;
+  --blob-1: rgba(192, 132, 252, 0.7);
+  --blob-2: rgba(96, 165, 250, 0.7);
 }
 
 body {
@@ -44,104 +62,172 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: var(--bg-gradient);
+  background-color: var(--bg-color);
   padding: 1rem;
   position: relative;
   overflow: hidden;
   color: var(--text-main);
 }
 
-/* Pure CSS Multi-Layered Starry Night Animations */
-.stars-layer-1, .stars-layer-2, .stars-layer-3 {
-  position: absolute;
+/* 1. Background Shooting Stars Animation */
+.shooting-stars-container {
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
   pointer-events: none;
+  overflow: hidden;
 }
 
-.stars-layer-1 {
-  background-image: 
-    radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 80px 120px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 150px 60px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 220px 180px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(1.5px 1.5px at 310px 90px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 380px 240px, #ffffff, rgba(0,0,0,0));
-  background-repeat: repeat;
-  background-size: 400px 300px;
-  animation: twinkleStars 4s ease-in-out infinite alternate;
+.star {
+  position: absolute;
+  height: 3px;
+  background: linear-gradient(
+    -45deg,
+    var(--star-head),
+    var(--star-trail),
+    transparent
+  );
+  border-radius: 999px;
+  filter: drop-shadow(0 0 10px var(--star-glow));
+  animation: meteor linear infinite;
+  opacity: 0;
+}
+
+/* Individual Star Timing & Trajectories */
+.star-1 {
+  top: -10%;
+  right: 10%;
+  width: 140px;
+  animation-duration: 3s;
+  animation-delay: 0s;
+}
+.star-2 {
+  top: -10%;
+  right: 30%;
+  width: 180px;
+  animation-duration: 2.5s;
+  animation-delay: 1.2s;
+}
+.star-3 {
+  top: -10%;
+  right: 50%;
+  width: 120px;
+  animation-duration: 3.5s;
+  animation-delay: 0.5s;
+}
+.star-4 {
+  top: 10%;
+  right: -10%;
+  width: 160px;
+  animation-duration: 2.8s;
+  animation-delay: 2s;
+}
+.star-5 {
+  top: -10%;
+  right: 70%;
+  width: 200px;
+  animation-duration: 3.2s;
+  animation-delay: 1.8s;
+}
+.star-6 {
+  top: 20%;
+  right: -10%;
+  width: 150px;
+  animation-duration: 2.2s;
+  animation-delay: 2.7s;
+}
+.star-7 {
+  top: -10%;
+  right: 85%;
+  width: 130px;
+  animation-duration: 3.8s;
+  animation-delay: 0.9s;
+}
+.star-8 {
+  top: 35%;
+  right: -10%;
+  width: 170px;
+  animation-duration: 2.6s;
+  animation-delay: 3.3s;
+}
+
+@keyframes meteor {
+  0% {
+    transform: translateX(0) translateY(0) rotate(-45deg);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-1000px) translateY(1000px) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+/* 2. Main Card Ambient Mesh Bubbles Glow */
+.card-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.ambient-bubble {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(55px);
+  pointer-events: none;
   z-index: 1;
-  opacity: 0.7;
+  animation: floatBubble 7s ease-in-out infinite alternate;
 }
 
-.stars-layer-2 {
-  background-image: 
-    radial-gradient(2px 2px at 50px 160px, #a5b4fc, rgba(0,0,0,0)),
-    radial-gradient(1.5px 1.5px at 130px 40px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(2.5px 2.5px at 250px 210px, #818cf8, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 340px 130px, #ffffff, rgba(0,0,0,0));
-  background-repeat: repeat;
-  background-size: 350px 350px;
-  animation: moveAndTwinkle 25s linear infinite;
-  z-index: 1;
-  opacity: 0.6;
+.blob-1 {
+  width: 280px;
+  height: 280px;
+  background: var(--blob-1);
+  top: -40px;
+  left: -30px;
 }
 
-.stars-layer-3 {
-  background-image: 
-    radial-gradient(1px 1px at 90px 220px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 190px 90px, #c084fc, rgba(0,0,0,0)),
-    radial-gradient(1.5px 1.5px at 290px 270px, #ffffff, rgba(0,0,0,0));
-  background-repeat: repeat;
-  background-size: 300px 300px;
-  animation: moveAndTwinkle 40s linear infinite reverse;
-  z-index: 1;
-  opacity: 0.5;
+.blob-2 {
+  width: 260px;
+  height: 260px;
+  background: var(--blob-2);
+  bottom: -40px;
+  right: -30px;
+  animation-delay: -3.5s;
 }
 
-body.light-mode .stars-layer-1,
-body.light-mode .stars-layer-2,
-body.light-mode .stars-layer-3 {
-  display: none;
+@keyframes floatBubble {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(35px, -25px) scale(1.15);
+  }
 }
 
-@keyframes twinkleStars {
-  0% { opacity: 0.3; transform: scale(0.98); }
-  100% { opacity: 0.95; transform: scale(1.02); }
-}
-
-@keyframes moveAndTwinkle {
-  0% { transform: translateY(0px); opacity: 0.4; }
-  50% { opacity: 0.9; }
-  100% { transform: translateY(-300px); opacity: 0.4; }
-}
-
-/* Main Application Card Container */
+/* Container & UI Controls */
 .container {
   position: relative;
   background: var(--card-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--card-border);
   padding: 2.2rem;
   border-radius: 1.5rem;
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 20px 40px var(--shadow-color);
+  box-shadow: 0 20px 45px var(--shadow-color);
   z-index: 2;
-  animation: floatCard 6s ease-in-out infinite;
 }
 
-@keyframes floatCard {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-/* Theme Toggle Button */
 .theme-toggle-container {
   display: flex;
   justify-content: flex-end;
@@ -160,7 +246,6 @@ body.light-mode .stars-layer-3 {
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #theme-toggle:hover {
@@ -182,7 +267,6 @@ form p {
   color: var(--text-sub);
 }
 
-/* Input Styles */
 form input {
   width: 100%;
   border: 1px solid var(--input-border);
@@ -201,7 +285,6 @@ form input:focus {
   box-shadow: 0 0 0 3px var(--msg-bg);
 }
 
-/* Dropdown Grid */
 .dropdown {
   display: flex;
   justify-content: space-between;
@@ -219,9 +302,6 @@ form input:focus {
   color: var(--text-main);
   padding: 0.7rem;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .exchange-icon:hover {
@@ -258,7 +338,7 @@ form input:focus {
 }
 
 .select-container select option {
-  background: #1a1c2e;
+  background: #12182b;
   color: #ffffff;
 }
 
@@ -267,7 +347,6 @@ body.light-mode .select-container select option {
   color: #0f172a;
 }
 
-/* Result Message Container */
 .msg {
   margin: 1.5rem 0;
   font-size: 1.1rem;
@@ -280,7 +359,6 @@ body.light-mode .select-container select option {
   border-left: 4px solid var(--msg-border);
 }
 
-/* Main High Contrast CTA Button */
 .submit-btn {
   width: 100%;
   height: 3.4rem;
@@ -299,11 +377,6 @@ body.light-mode .select-container select option {
 .submit-btn:hover {
   background: var(--btn-hover);
   transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(99, 102, 241, 0.45);
-}
-
-.submit-btn:active {
-  transform: translateY(1px);
 }
 
 @media (max-width: 380px) {
