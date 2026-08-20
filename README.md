@@ -17,7 +17,7 @@ Designed with an ultra-clean user experience, this repository showcases advanced
 
 ## 🛠️ Core Features & Engineering Objectives (Updated UI)
 
-- **Floating Currency Rain Animation:** Integrated custom CSS keyframes animating falling and swaying global currency symbols ($ , ₹, €, £, ¥, 💵) themed specifically for a financial calculator app.
+- **Seamless Falling Currency Rain:** Integrated smooth CSS keyframe animations with off-screen default positioning (`top: -120px`, `opacity: 0`), preventing initial load glitches and ensuring currency symbols ($ , ₹, €, £, ¥, 💵) enter smoothly from above the viewport.
 - **Ambient Card Mesh Glow ("Bubbles"):** Implemented morphing, glowing gradient ambient blobs surrounding the main card for a futuristic UI depth.
 - **Dynamic Theme Switcher:** Fully supports Dark and Light themes with adaptive emerald green high-visibility CSS color variables for currency animations.
 - **Database & Logic Decoupling:** Separated the static indices database (`app.js`) from the live conversion procedures (`code.js`) to allow seamless future currency expansions.
@@ -30,12 +30,12 @@ Designed with an ultra-clean user experience, this repository showcases advanced
 
 To enforce enterprise-grade clean coding structures (Separation of Concerns), the application space is organized cleanly into four central files:
 
-| File Name           | Structural Layer     | Technical Responsibility                                                                    |
-| :------------------ | :------------------- | :------------------------------------------------------------------------------------------ |
-| 🌐 **`index.html`** | Structural Blueprint | Hosts semantic input fields, theme switcher, money rain layers, and dynamic card wrappers.  |
-| 🎨 **`style.css`**  | Visual Presentation  | Manages currency fall keyframes, ambient glow bubbles, theme variables, and responsiveness. |
-| ⚡ **`app.js`**     | Local Database Array | Contains the entire data index of global currencies and validation mappings.                |
-| 🧠 **`code.js`**    | Core Logical Engine  | Intercepts user inputs, calls evaluation arrays, and renders the live values to DOM nodes.  |
+| File Name           | Structural Layer     | Technical Responsibility                                                                   |
+| :------------------ | :------------------- | :----------------------------------------------------------------------------------------- |
+| 🌐 **`index.html`** | Structural Blueprint | Hosts semantic input fields, theme switcher, money rain layers, and dynamic card wrappers. |
+| 🎨 **`style.css`**  | Visual Presentation  | Manages currency fall keyframes, initial off-screen positioning, and theme variables.      |
+| ⚡ **`app.js`**     | Local Database Array | Contains the entire data index of global currencies and validation mappings.               |
+| 🧠 **`code.js`**    | Core Logical Engine  | Intercepts user inputs, calls evaluation arrays, and renders the live values to DOM nodes. |
 
 ---
 
