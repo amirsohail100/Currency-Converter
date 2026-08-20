@@ -15,14 +15,13 @@ Designed with an ultra-clean user experience, this repository showcases advanced
 
 ---
 
-## 🛠️ Core Features & Engineering Objectives (Updated UI)
+## 🛠️ Core Features & Engineering Objectives (Final UI)
 
-- **Seamless Falling Currency Rain:** Integrated smooth CSS keyframe animations with off-screen default positioning (`top: -120px`, `opacity: 0`), preventing initial load glitches and ensuring currency symbols ($ , ₹, €, £, ¥, 💵) enter smoothly from above the viewport.
-- **Ambient Card Mesh Glow ("Bubbles"):** Implemented morphing, glowing gradient ambient blobs surrounding the main card for a futuristic UI depth.
-- **Dynamic Theme Switcher:** Fully supports Dark and Light themes with adaptive emerald green high-visibility CSS color variables for currency animations.
-- **Database & Logic Decoupling:** Separated the static indices database (`app.js`) from the live conversion procedures (`code.js`) to allow seamless future currency expansions.
-- **Dynamic Content Population:** Iterates fluidly through the indices array on document boot to generate comprehensive, bug-free currency select controls.
-- **Graceful Input Interception:** Integrated continuous value checks to lock the core interface against invalid strings, zero values, or negative inputs.
+- **Continuous Dense Money Rain:** Engineered 24 floating currency symbols ($ , ₹, €, £, ¥, 💵, ₿) using staggered negative animation delays to guarantee smooth, infinite falling loops with zero delay gaps on load.
+- **Frosted Glassmorphism Transparency:** Configured translucency (`rgba`) and backdrop blur filter (`blur(22px)`) on the main converter card, allowing falling background currencies to blur gracefully behind the card interface.
+- **Custom Modern Dropdowns:** Replaced default browser select menus with a sleek custom UI containing custom chevrons, theme-adaptive dark/light option menus, and custom scrollbars.
+- **Dynamic Theme Switcher:** Fully supports Dark and Light themes with adaptive emerald green high-visibility CSS color variables.
+- **Database & Logic Decoupling:** Separated static indices database (`app.js`) from live conversion procedures (`code.js`) for modular scalability.
 
 ---
 
@@ -33,16 +32,16 @@ To enforce enterprise-grade clean coding structures (Separation of Concerns), th
 | File Name           | Structural Layer     | Technical Responsibility                                                                   |
 | :------------------ | :------------------- | :----------------------------------------------------------------------------------------- |
 | 🌐 **`index.html`** | Structural Blueprint | Hosts semantic input fields, theme switcher, money rain layers, and dynamic card wrappers. |
-| 🎨 **`style.css`**  | Visual Presentation  | Manages currency fall keyframes, initial off-screen positioning, and theme variables.      |
+| 🎨 **`style.css`**  | Visual Presentation  | Manages glassmorphism blur, dropdown styling, custom scrollbars, and keyframe animations.  |
 | ⚡ **`app.js`**     | Local Database Array | Contains the entire data index of global currencies and validation mappings.               |
-| 🧠 **`code.js`**    | Core Logical Engine  | Intercepts user inputs, calls evaluation arrays, and renders the live values to DOM nodes. |
+| 🧠 **`code.js`**    | Core Logical Engine  | Intercepts user inputs, calls evaluation arrays, and renders live values to DOM nodes.     |
 
 ---
 
 ## 💻 Tech Stack Components
 
 - **Markup Layer:** HTML5 Semantic Form Structure Elements
-- **Visual Engine:** Custom CSS3 (Flexbox, Swaying Currency Trajectory Keyframes, Ambient Blur Filters)
+- **Visual Engine:** Custom CSS3 (Flexbox, Glassmorphism Backdrop Blur, Swaying Currency Trajectories)
 - **Execution Logic:** ES6+ JavaScript Script Pipelines (Modular Mapping, Real-time DOM Updates)
 
 ---
