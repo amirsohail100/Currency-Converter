@@ -1,11 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Currency Converter</title>
     <link href="style.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -15,60 +18,79 @@
     />
   </head>
   <body>
-    <!-- Pure CSS Animated Star Layers -->
-    <div class="stars-layer-1"></div>
-    <div class="stars-layer-2"></div>
-    <div class="stars-layer-3"></div>
-
-    <div class="container">
-      <!-- Dark/Light Theme Toggle Switcher -->
-      <div class="theme-toggle-container">
-        <button id="theme-toggle" aria-label="Toggle Theme">
-          <i class="fa-solid fa-moon"></i>
-        </button>
-      </div>
-
-      <h2>Currency Converter</h2>
-      <form>
-        <div class="amount">
-          <p>Enter Amount</p>
-          <input value="1" type="text" />
-        </div>
-        <div class="dropdown">
-          <div class="from">
-            <p>From</p>
-            <div class="select-container">
-              <img src="https://flagsapi.com/US/flat/64.png" alt="From Currency Flag" />
-              <select name="from"></select>
-            </div>
-          </div>
-          <i class="fa-solid fa-arrow-right-arrow-left exchange-icon"></i>
-          <div class="to">
-            <p>To</p>
-            <div class="select-container">
-              <img src="https://flagsapi.com/IN/flat/64.png" alt="To Currency Flag" />
-              <select name="to"></select>
-            </div>
-          </div>
-        </div>
-        <div class="msg">1 USD = 80 INR</div>
-        <button type="submit" class="submit-btn">Get Exchange Rate</button>
-      </form>
+    <!-- Background Shooting Stars Meteor Shower -->
+    <div class="shooting-stars-container">
+      <div class="star star-1"></div>
+      <div class="star star-2"></div>
+      <div class="star star-3"></div>
+      <div class="star star-4"></div>
+      <div class="star star-5"></div>
+      <div class="star star-6"></div>
+      <div class="star star-7"></div>
+      <div class="star star-8"></div>
     </div>
 
-    <!-- Theme Switcher Script Handler -->
-    <script>
-      const themeToggleBtn = document.getElementById('theme-toggle');
-      const themeIcon = themeToggleBtn.querySelector('i');
+    <!-- Main Card Wrapper with Ambient Mesh Glow Bubbles -->
+    <div class="card-wrapper">
+      <div class="ambient-bubble blob-1"></div>
+      <div class="ambient-bubble blob-2"></div>
 
-      themeToggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode');
-        if (document.body.classList.contains('light-mode')) {
-          themeIcon.classList.remove('fa-moon');
-          themeIcon.classList.add('fa-sun');
+      <div class="container">
+        <!-- Theme Switcher -->
+        <div class="theme-toggle-container">
+          <button id="theme-toggle" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </div>
+
+        <h2>Currency Converter</h2>
+        <form>
+          <div class="amount">
+            <p>Enter Amount</p>
+            <input value="1" type="text" />
+          </div>
+          <div class="dropdown">
+            <div class="from">
+              <p>From</p>
+              <div class="select-container">
+                <img
+                  src="https://flagsapi.com/US/flat/64.png"
+                  alt="From Currency Flag"
+                />
+                <select name="from"></select>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-right-arrow-left exchange-icon"></i>
+            <div class="to">
+              <p>To</p>
+              <div class="select-container">
+                <img
+                  src="https://flagsapi.com/IN/flat/64.png"
+                  alt="To Currency Flag"
+                />
+                <select name="to"></select>
+              </div>
+            </div>
+          </div>
+          <div class="msg">1 USD = 80 INR</div>
+          <button type="submit" class="submit-btn">Get Exchange Rate</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Theme Switcher Logic -->
+    <script>
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      const themeIcon = themeToggleBtn.querySelector("i");
+
+      themeToggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+        if (document.body.classList.contains("light-mode")) {
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
         } else {
-          themeIcon.classList.remove('fa-sun');
-          themeIcon.classList.add('fa-moon');
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
         }
       });
     </script>
