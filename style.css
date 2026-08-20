@@ -44,7 +44,7 @@ body.light-mode {
   --msg-border: #059669;
   --shadow-color: rgba(5, 150, 105, 0.2);
 
-  /* Animation Theme Variables (Light Mode Visible High-Contrast Emerald Currency) */
+  /* Animation Theme Variables (Light Mode High-Contrast Emerald Currency) */
   --currency-color: #047857;
   --currency-glow: rgba(4, 120, 87, 0.5);
   --blob-1: rgba(110, 231, 183, 0.65);
@@ -77,30 +77,33 @@ body {
 
 .currency-item {
   position: absolute;
+  top: -120px; /* Ensures elements sit completely above screen before/during delay */
+  opacity: 0;   /* Completely invisible during animation-delay phase */
   color: var(--currency-color);
   text-shadow: 0 0 12px var(--currency-glow);
   font-weight: 700;
   user-select: none;
   animation: fallAndSway linear infinite;
+  animation-fill-mode: backwards;
 }
 
 /* Individual Spacing, Sizing, Timings, and Trajectories */
 .m-1  { left: 5%;  font-size: 2.2rem; animation-duration: 7s;   animation-delay: 0s; }
-.m-2  { left: 14%; font-size: 1.6rem; animation-duration: 9s;   animation-delay: 2s; }
+.m-2  { left: 14%; font-size: 1.6rem; animation-duration: 9s;   animation-delay: 1.5s; }
 .m-3  { left: 23%; font-size: 2.4rem; animation-duration: 6.5s; animation-delay: 0.5s; }
-.m-4  { left: 32%; font-size: 1.8rem; animation-duration: 8.5s; animation-delay: 3s; }
-.m-5  { left: 41%; font-size: 2.5rem; animation-duration: 10s;  animation-delay: 1.2s; }
-.m-6  { left: 50%; font-size: 2.8rem; animation-duration: 7.5s; animation-delay: 4s; }
+.m-4  { left: 32%; font-size: 1.8rem; animation-duration: 8.5s; animation-delay: 2.5s; }
+.m-5  { left: 41%; font-size: 2.5rem; animation-duration: 10s;  animation-delay: 1s; }
+.m-6  { left: 50%; font-size: 2.8rem; animation-duration: 7.5s; animation-delay: 3s; }
 .m-7  { left: 59%; font-size: 2.0rem; animation-duration: 8s;   animation-delay: 1.8s; }
 .m-8  { left: 68%; font-size: 2.3rem; animation-duration: 9.5s; animation-delay: 0.2s; }
-.m-9  { left: 77%; font-size: 1.7rem; animation-duration: 6.8s; animation-delay: 2.7s; }
-.m-10 { left: 85%; font-size: 2.6rem; animation-duration: 11s;  animation-delay: 3.5s; }
-.m-11 { left: 92%; font-size: 2.1rem; animation-duration: 7.2s; animation-delay: 1s; }
-.m-12 { left: 96%; font-size: 1.9rem; animation-duration: 9s;   animation-delay: 2.2s; }
+.m-9  { left: 77%; font-size: 1.7rem; animation-duration: 6.8s; animation-delay: 2.2s; }
+.m-10 { left: 85%; font-size: 2.6rem; animation-duration: 11s;  animation-delay: 3.2s; }
+.m-11 { left: 92%; font-size: 2.1rem; animation-duration: 7.2s; animation-delay: 0.8s; }
+.m-12 { left: 96%; font-size: 1.9rem; animation-duration: 9s;   animation-delay: 2s; }
 
 @keyframes fallAndSway {
   0% {
-    top: -12%;
+    top: -120px;
     transform: translateX(0) rotate(0deg) scale(0.9);
     opacity: 0;
   }
@@ -114,7 +117,7 @@ body {
     opacity: 0.9;
   }
   100% {
-    top: 110%;
+    top: 110vh;
     transform: translateX(-35px) rotate(360deg) scale(0.9);
     opacity: 0;
   }
