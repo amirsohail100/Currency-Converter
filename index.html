@@ -1,14 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Currency Converter</title>
     <link href="style.css" rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -18,16 +15,20 @@
     />
   </head>
   <body>
-    <!-- Background Shooting Stars Meteor Shower -->
-    <div class="shooting-stars-container">
-      <div class="star star-1"></div>
-      <div class="star star-2"></div>
-      <div class="star star-3"></div>
-      <div class="star star-4"></div>
-      <div class="star star-5"></div>
-      <div class="star star-6"></div>
-      <div class="star star-7"></div>
-      <div class="star star-8"></div>
+    <!-- Floating Currency Rain Background Animation -->
+    <div class="money-rain-container">
+      <div class="currency-item m-1">$</div>
+      <div class="currency-item m-2">₹</div>
+      <div class="currency-item m-3">€</div>
+      <div class="currency-item m-4">£</div>
+      <div class="currency-item m-5">¥</div>
+      <div class="currency-item m-6">💵</div>
+      <div class="currency-item m-7">$</div>
+      <div class="currency-item m-8">₹</div>
+      <div class="currency-item m-9">€</div>
+      <div class="currency-item m-10">💵</div>
+      <div class="currency-item m-11">£</div>
+      <div class="currency-item m-12">¥</div>
     </div>
 
     <!-- Main Card Wrapper with Ambient Mesh Glow Bubbles -->
@@ -53,10 +54,7 @@
             <div class="from">
               <p>From</p>
               <div class="select-container">
-                <img
-                  src="https://flagsapi.com/US/flat/64.png"
-                  alt="From Currency Flag"
-                />
+                <img src="https://flagsapi.com/US/flat/64.png" alt="From Currency Flag" />
                 <select name="from"></select>
               </div>
             </div>
@@ -64,10 +62,7 @@
             <div class="to">
               <p>To</p>
               <div class="select-container">
-                <img
-                  src="https://flagsapi.com/IN/flat/64.png"
-                  alt="To Currency Flag"
-                />
+                <img src="https://flagsapi.com/IN/flat/64.png" alt="To Currency Flag" />
                 <select name="to"></select>
               </div>
             </div>
@@ -80,17 +75,17 @@
 
     <!-- Theme Switcher Logic -->
     <script>
-      const themeToggleBtn = document.getElementById("theme-toggle");
-      const themeIcon = themeToggleBtn.querySelector("i");
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const themeIcon = themeToggleBtn.querySelector('i');
 
-      themeToggleBtn.addEventListener("click", () => {
-        document.body.classList.toggle("light-mode");
-        if (document.body.classList.contains("light-mode")) {
-          themeIcon.classList.remove("fa-moon");
-          themeIcon.classList.add("fa-sun");
+      themeToggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        if (document.body.classList.contains('light-mode')) {
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
         } else {
-          themeIcon.classList.remove("fa-sun");
-          themeIcon.classList.add("fa-moon");
+          themeIcon.classList.remove('fa-sun');
+          themeIcon.classList.add('fa-moon');
         }
       });
     </script>
