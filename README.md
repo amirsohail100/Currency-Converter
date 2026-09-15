@@ -17,7 +17,7 @@ Designed with an ultra-clean user experience, this repository showcases advanced
 
 ## 📸 Live Preview of the Interface
 
-![Currency Converter Preview](./currency_ui.png)
+![Currency Converter Preview](assets/currency_ui.png)
 
 ---
 
